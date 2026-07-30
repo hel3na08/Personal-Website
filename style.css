@@ -1,0 +1,13 @@
+#dieter{
+    font-size: 50px;
+    color: rgb(148, 148, 237);
+}
+p {font-family: 'Times New Roman', Times, serif;}
+#lama {
+    width: 50%;
+    z-index: -1;
+    position: absolute;
+}
+a:hover {
+    color: beige;
+}
