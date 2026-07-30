@@ -129,43 +129,38 @@ body {
     line-height: 1.5;                    
 }
 
-/* ==================== VERSTECKTER ZUSATZTEXT ==================== */
-.mehr-info {
-    /* Setzt die Sichtbarkeit auf 0 (vollständig transparent / unsichtbar) */
-    opacity: 0;                      
-    /* Versteckt das Element zusätzlich für Screenreader und verhindert, dass es anklickbar ist */
-    visibility: hidden;
-    /* Animiert das Ein- und Ausblenden der Sichtbarkeit weich über 0,3 Sekunden */
-    transition: opacity 0.3s ease;
-    /* Erzeugt einen Außenabstand von 15 Pixeln nach oben hin zur Kurzbeschreibung */
-    margin-top: 15px;
+.box-link {
+    text-decoration: none; /* Entfernt jegliche Unterstreichung */
+    color: inherit;        /* Sorgt dafür, dass die Schriftfarbe normal bleibt */
+    display: flex;         /* Zwingt den Link, sich wie ein Flex-Element zu verhalten */
+    flex: 1;               /* Gibt der Box innerhalb des Links denselben Platz wie den anderen */
+    max-width: 100%;       /* Erlaubt die volle Breite innerhalb des Containers */
 }
-
-/* Die Trennlinie (hr) im versteckten Bereich */
-.mehr-info hr {
-    /* Entfernt den standardmäßigen, klobigen Rahmen der Trennlinie */
-    border: 0;
-    /* Erzeugt eine feine, 1 Pixel dicke obere Linie in einem hellen Grauton */
-    border-top: 1px solid #ddd;
-    /* Erzeugt einen Abstand von 15 Pixeln unter der Linie hin zum ausführlichen Text */
-    margin-bottom: 15px;
-    /* Die Linie erstreckt sich über die gesamte Breite des Textbereichs (100%) */
-    width: 100%;
-}
-
-/* ==================== ANIMATIONS-ZUSTÄNDE VIA JAVASCRIPT ==================== */
-/* Das passiert, wenn die Box aktiv ist (die Klasse .aktiv wird per JavaScript hinzugefügt) */
+/* DAS PASSIERT, WENN DIE BOX ANGEKLICKT WIRD */
 .box.aktiv {
-    /* Erhöht die maximale Höhe auf 800 Pixel, wodurch die Box sanft nach unten aufklappt */
-    max-height: 800px;               /* Erlaubt der Box, sich nach unten hin zu entfalten */
-    /* Macht den Schatten dunkler und größer, damit die Box optisch "näher" zum Nutzer heranrückt */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); 
+    position: fixed;            /* Löst die Box fliegend aus dem Layout */
+    
+    /* Nutzt CSS-Variablen, die wir gleich per JavaScript übergeben */
+    top: var(--box-top, 0);
+    left: var(--box-left, 0);
+    width: var(--box-width, 100%);
+    height: var(--box-height, 100%);
+    
+    margin: 0;
+    z-index: 9999;              /* Legt sich über absolut alles */
+    background-color: rgb(133, 144, 177); 
+    
+    /* ANIMATIONS-TRICK: Erzwingt das sofortige Ausdehnen auf den ganzen Bildschirm */
+    animation: aufblasen 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-/* Das passiert mit dem versteckten Text, wenn die Box die Klasse .aktiv besitzt */
-.box.aktiv .mehr-info {
-    /* Schaltet die Sichtbarkeit auf 1 (vollständig deckend / sichtbar) */
-    opacity: 1;                      
-    /* Macht das Element für den Browser und den Nutzer wieder voll einsatzbereit */
-    visibility: visible;
+/* Die weiche mathematische Kurve für das Ausdehnen */
+@keyframes aufblasen {
+    to {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
 }
