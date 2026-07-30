@@ -1,166 +1,119 @@
 body {
-    /* Entfernt den standardmäßigen weißen Außenrand, den Browser automatisch um die Website legen */
     margin: 0; 
-    /* Definiert die Schriftarten. Der Browser versucht sie von links nach rechts zu laden, je nachdem, was auf dem PC installiert ist */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(253, 242, 226);
 }
 
-/* ==================== HEADER-STYLING (KOPFZEILE) ==================== */
 .header {
-    /* Setzt die Hintergrundfarbe des Headers auf ein bestimmtes Graublau (RGB-Werte) */
     background-color: rgb(133, 144, 177);
-
-    /* Aktiviert das Flexbox-Layout-Modell für eine flexible Anordnung der inneren Elemente */
     display: flex;
-    /* Schiebt die Elemente (z. B. Name links, Links rechts) maximal auseinander an die Außenränder */
     justify-content: space-between;
-    /* Zentriert alle Elemente innerhalb des Headers perfekt auf vertikaler Ebene (Höhe) */
     align-items: center;
-    /* Bestimmt den Innenabstand: 0.1% nach oben/unten und 1% nach links/rechts */
     padding: 0.1% 1%;
-    
-    /* Der Header bleibt beim Herunterscrollen der Website fest am oberen Bildschirmrand "kleben" */
     position: sticky;
-    /* Bestimmt, dass der Header exakt bei 0 Pixeln vom oberen Rand festklebt */
     top: 0;
-    /* Sorgt dafür, dass der Header auf der z-Achse (Ebenen) ganz oben liegt und nicht von Boxen überlagert wird */
     z-index: 1000;
 }
 
-.about-me {
-    display: flex;
-    justify-content: left;
-    padding: 2%; 
-}
-
-/* ==================== BOXEN-CONTAINER ==================== */
 .boxen {
-    /* Aktiviert Flexbox, um die drei Inhaltsboxen nebeneinander anzuordnen */
     display: flex;
-    /* Zentriert die gesamte Boxengruppe horizontal in der Mitte des Bildschirms */
     justify-content: center; 
-    /* Erzeugt einen flexiblen Abstand von 2% der Bildschirmbreite zwischen den einzelnen Boxen */
     gap: 2%;                 
-    /* Setzt den Innenabstand des Containers: 50px nach oben/unten und 2% zu den Seitenränder */
-    padding: 20% 2%;      
-    /* Der Container nutzt die volle Breite des übergeordneten Elements (100%) */
+    padding: 50px 2%;      
     width: 100%;             
-    /* Sorgt dafür, dass Innenabstände (Padding) die Gesamtbreite von 100% nicht künstlich vergrößern */
     box-sizing: border-box;  
 }
 
-/* ==================== DIE EINZELNE BOX ==================== */
-/* Die einzelne Box mit Schatteneffekt */
+/* Die normale, geschlossene Box */
 .box {
-    /* Setzt die Hintergrundfarbe der Box auf dasselbe Graublau wie den Header */
     background-color: rgb(133, 144, 177);             
-    /* Sagt der Box, dass sie sich den verfügbaren Platz im Container gleichmäßig mit den anderen Boxen teilen soll */
     flex: 1;
-    /* Die Höhe passt sich flexibel an den Inhalt an, solange max-height es zulässt */
     height: auto;                        
-    /* Die Box darf maximal 100% des ihr zugewiesenen Platzes einnehmen (verhindert das Ausbrechen) */
     max-width: 100%;
-    /* Rundet alle vier Ecken der Box mit einem Radius von 20 Pixeln ab */
     border-radius: 20px;
-    
-    /* Schatteneffekt: 0px nach rechts, 10px nach unten, 20px Weichzeichnung, 15% sichtbares Schwarz (rgba) */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
     
-    /* Schneidet alle Inhalte (wie z. B. Bilder) sauber ab, die über die abgerundeten Ecken hinausragen */
     overflow: hidden;                    
-    /* Aktiviert Flexbox innerhalb der Box, um Bild und Texte flexibel auszurichten */
     display: flex;
-    /* Stapelt die Elemente innerhalb der Box untereinander (vertikal) statt nebeneinander */
     flex-direction: column;
-    /* Zentriert alle Elemente innerhalb der Box (Bild, Überschrift, Text) horizontal in der Mitte */
     align-items: center;
-    /* Erzeugt einen Innenabstand von 20 Pixeln am oberen Rand der Box */
     padding-top: 20px;
     
-    /* Verwandelt den Mauszeiger in eine Hand, sobald man über die Box fährt (signalisiert Klickbarkeit) */
     cursor: pointer;                 
-    /* Animiert alle Eigenschaftsänderungen (z. B. Höhe und Schatten) weich über einen Zeitraum von 0,4 Sekunden */
-    transition: all 0.4s ease-in-out; 
-    /* Begrenzt die Start-Höhe der geschlossenen Box strikt auf maximal 350 Pixel */
-    max-height: 350px;               /* Start-Höhe der geschlossenen Box */
-    /* Versteckt alle Inhalte der Box, die die maximale Höhe von 350px überschreiten (Dopplung im Originalcode) */
-    overflow: hidden; 
+    /* Bestimmt, wie weich und geschmeidig die Box nach unten ausfährt */
+    transition: max-height 0.5s ease-in-out, box-shadow 0.3s ease; 
+    max-height: 360px;               /* Strikte Begrenzung im geschlossenen Zustand */
 }
 
-/* ==================== ELEMENTE INNERHALB DER BOX ==================== */
-/* Das Bild in der Box (bleibt unverändert) */
 .box-img {
-    /* Das Bild nimmt 90% der Gesamtbreite der Box ein (lässt links und rechts kleine Ränder frei) */
     width: 90%;                         
-    /* Setzt eine feste Höhe von 200 Pixeln für das Bild fest */
     height: 200px;                       
-    /* Schneidet das Bild proportional zu und füllt den Raum aus, ohne das Motiv zu verzerren oder zu quetschen */
     object-fit: cover;
-    /* Dieser Befehl hat bei Bildern ohne Flex-Zusammenhang hier keine Auswirkung (im Originalcode enthalten) */
-    align-items: center;                   
 }
 
-/* Der Textbereich in der Box (bleibt unverändert) */
 .box-content {
-    /* Erzeugt einen gleichmäßigen Innenabstand von 20 Pixeln zu allen Seiten für den Text */
     padding: 20px;                       
-    /* Setzt die Textfarbe auf ein dunkles Anthrazit/Grau */
     color: #333;
-    /* Zentriert alle Texte (Überschriften und Absätze) innerhalb dieses Bereichs mittig */
     text-align: center;                         
 }
 
-/* Die Überschrift (h3) im Textbereich */
 .box-content h3 {
-    /* Setzt die Außenabstände: 0 oben, 0 rechts, 10px nach unten (zum Text hin), 0 links */
     margin: 0 0 10px 0;                  
-    /* Bestimmt die Schriftgröße der Überschrift auf 20 Pixel */
     font-size: 20px;
 }
 
-/* Der normale Beschreibungstext (p) im Textbereich */
 .box-content p {
-    /* Entfernt alle standardmäßigen Außenabstände des Textabsatzes */
     margin: 0;
-    /* Bestimmt die Schriftgröße des Textes auf 14 Pixel */
     font-size: 14px;
-    /* Setzt den Zeilenabstand auf das 1,5-fache der Schriftgröße für eine bessere Lesbarkeit */
     line-height: 1.5;                    
 }
 
-.box-link {
-    text-decoration: none; /* Entfernt jegliche Unterstreichung */
-    color: inherit;        /* Sorgt dafür, dass die Schriftfarbe normal bleibt */
-    display: flex;         /* Zwingt den Link, sich wie ein Flex-Element zu verhalten */
-    flex: 1;               /* Gibt der Box innerhalb des Links denselben Platz wie den anderen */
-    max-width: 100%;       /* Erlaubt die volle Breite innerhalb des Containers */
-}
-/* DAS PASSIERT, WENN DIE BOX ANGEKLICKT WIRD */
-.box.aktiv {
-    position: fixed;            /* Löst die Box fliegend aus dem Layout */
-    
-    /* Nutzt CSS-Variablen, die wir gleich per JavaScript übergeben */
-    top: var(--box-top, 0);
-    left: var(--box-left, 0);
-    width: var(--box-width, 100%);
-    height: var(--box-height, 100%);
-    
-    margin: 0;
-    z-index: 9999;              /* Legt sich über absolut alles */
-    background-color: rgb(133, 144, 177); 
-    
-    /* ANIMATIONS-TRICK: Erzwingt das sofortige Ausdehnen auf den ganzen Bildschirm */
-    animation: aufblasen 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+/* DER VERSTECKTE BEREICH (Inklusive Button) */
+.mehr-info {
+    max-height: 0;                   /* Nimmt unsichtbar absolut keinen Platz weg */
+    opacity: 0;                      /* Vollständig transparent */
+    visibility: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-top: 0;
+    overflow: hidden;
 }
 
-/* Die weiche mathematische Kurve für das Ausdehnen */
-@keyframes aufblasen {
-    to {
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-    }
+.mehr-info hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+    width: 100%;
+}
+
+/* Das Styling für den "Mehr erfahren" Button */
+.weiter-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: white;
+    color: rgb(133, 144, 177);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.weiter-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* -------------------------------------------------------------
+   WENN DIE BOX AKTIV IST (Nach unten ausfahren und Inhalt zeigen)
+------------------------------------------------------------- */
+.box.aktiv {
+    max-height: 1000px;              /* Erlaubt der Box weit nach unten auszufahren */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); 
+}
+
+/* Macht den Button und den Text erst jetzt sichtbar */
+.box.aktiv .mehr-info {
+    max-height: 500px;
+    opacity: 1;                      
+    visibility: visible;
+    margin-top: 15px;
 }
