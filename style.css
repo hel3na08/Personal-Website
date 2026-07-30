@@ -1,0 +1,97 @@
+body {
+    margin:0; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.header {
+    background-color:rgb(133, 144, 177);
+
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0.1% 1%;
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.boxen {
+    display: flex;
+    justify-content: center; 
+    gap: 2%;                 
+    padding: 50px 2%;      
+    width: 100%;             
+    box-sizing: border-box;  
+}
+
+/* Die einzelne Box mit Schatteneffekt */
+.box {
+    background-color: rgb(133, 144, 177);             
+    flex: 1;
+    height: auto;                        
+    max-width: 100%;
+    border-radius: 20px;
+    
+    /* Schatteneffekt */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    
+    overflow: hidden;                    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    
+    cursor: pointer;                 
+    transition: all 0.4s ease-in-out; 
+    max-height: 350px;               /* Start-Höhe der geschlossenen Box */
+    overflow: hidden; 
+}
+
+/* Das Bild in der Box (bleibt unverändert) */
+.box-img {
+    width: 90%;                         
+    height: 200px;                       
+    object-fit: cover;
+    align-items: center;                   
+}
+
+/* Der Textbereich in der Box (bleibt unverändert) */
+.box-content {
+    padding: 20px;                       
+    color: #333;
+    text-align: center;                         
+}
+
+.box-content h3 {
+    margin: 0 0 10px 0;                  
+    font-size: 20px;
+}
+
+.box-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;                    
+}
+
+.mehr-info {
+    opacity: 0;                      
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    margin-top: 15px;
+}
+
+.mehr-info hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.box.aktiv {
+    max-height: 800px;               /* Erlaubt der Box, sich nach unten hin zu entfalten */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); 
+}
+
+.box.aktiv .mehr-info {
+    opacity: 1;                      
+    visibility: visible;
+}
