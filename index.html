@@ -1,62 +1,108 @@
+<!-- 1. DOKUMENTEN-TYP: Sagt dem Browser, dass dies eine moderne HTML5-Datei ist -->
 <!DOCTYPE html>
+
+<!-- 2. WURZEL-ELEMENT: Hier beginnt das HTML-Dokument. 'lang="en"' definiert Englisch als Sprache -->
 <html lang="en">
+
+<!-- 3. KOPFBEREICH: Enthält unsichtbare Hintergrund-Informationen für den Browser und Suchmaschinen -->
 <head>
+    <!-- 4. ZEICHENSATZ: Sorgt dafür, dass Sonderzeichen und Umlaute (ä, ö, ü) korrekt angezeigt werden -->
     <meta charset="UTF-8">
+    
+    <!-- 5. RESPONSIVENESS: Stellt sicher, dass die Website auf Smartphones und PCs richtig skaliert wird -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 6. TAB-TITEL: Der Text, der ganz oben im Browser-Tab für den Nutzer steht -->
     <title>Personal Website Helena Seifert</title>
+    
+    <!-- 7. CSS-VERKNÜPFUNG: Lädt das Design und die Formatierungen aus deiner externen "style.css"-Datei -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- 8. JAVASCRIPT-VERKNÜPFUNG: Lädt die Logik (z. B. das Klicken der Boxen) aus deiner "script.js"-Datei -->
     <script src="script.js"></script>
 </head>
+
 <body>
-    <header 
-    class="header"> <h1>Helena Seifert</h1> 
-        <nav class="navi-links"> <!--naviagationslinks-->
-            <a href="#about-me"></a> 
-            <a href="#contact"></a>
+
+    <!-- 10. KOPFZEILE: Der obere Bereich der Website, der meistens Logo und Navigation enthält -->
+    <header class="header"> 
+        <!-- 11. HAUPTÜBERSCHRIFT: Die wichtigste Überschrift (Grad 1) der Seite, hier der Name -->
+        <h1>Helena Seifert</h1> 
+        
+        <!-- 12. NAVIGATION: Ein Container, der dem Browser signalisiert: "Hier kommen Menü-Links" -->
+        <nav class="navi-links"> 
+            <!-- 13. LINKS: Die klickbaren Menüpunkte. Das '#' leitet zu Abschnitten auf derselben Seite weiter -->
+            <a href="#about-me">Über mich</a> 
+            <a href="#contact">Kontakt</a>
         </nav>
     </header>
+    
+    <section class="about-me">
+        <h2>About Me!</h2>
+    </section>
+
+    <!-- 14. SEKTION: Ein großer Inhaltsbereich, der als Sammelbecken (Container) für alle drei Boxen dient -->
     <section class="boxen">
 
-    <!-- Box 1 -->
-    <div class="box">
-        <div class="box-content"> <h3>Friends & Family</h3> </div>
-        <img src="Bilder/IMG_8813.jpeg" alt="Projekt 1" class="box-img">
-        <div class="box-content">
-            <p>Hier steht eine kurze Beschreibung für das erste Element.</p>
-            <!-- Der Text, der erst beim Klicken erscheint -->
-            <div class="mehr-info">
-                <hr> <!-- Eine kleine Trennlinie -->
-                <p>Das ist der ausführliche Text! Hier kannst du nun im Detail alles über dein Projekt, deine Erfahrungen oder dieses spezifische Thema erzählen.</p>
+        <!-- ==================== BOX 1 (Friends & Family) ==================== -->
+        <!-- 15. DIE ERSTE BOX: Ein einzelnes Kärtchen-Element -->
+        <div class="box">
+            <div class="box-content">
+                <!-- 18. UNTERÜBERSCHRIFT: Eine kleinere Überschrift (Grad 3) für den Titel der Box -->
+                <h3>Friends & Family</h3> 
+            </div>
+            <!-- 16. BILD: Zeigt das Foto aus deinem lokalen Ordner "Bilder" an -->
+            <img src="Bilder/IMG_8813.jpeg" alt="Projekt 1" class="box-img">
+            
+            <!-- 17. INHALTS-CONTAINER: Umschließt alle Texte innerhalb dieser Box -->
+            <div class="box-content"> 
+                <!-- 19. FLIESSTEXT: Die kurze, standardmäßig sichtbare Einleitung -->
+                <p>Hier steht eine kurze Beschreibung für das erste Element.</p>
+                
+                <!-- 20. VERSTECKTER BEREICH: Dieser Inhalt wird erst sichtbar, wenn man per JavaScript darauf klickt -->
+                <div class="mehr-info">
+                    <!-- 21. TRENNLINIE: Erzeugt einen feinen, horizontalen Strich im Text -->
+                    <hr> 
+                    <!-- 22. DETAILTEXT: Der ausführliche Text, der nach dem Klick erscheint -->
+                    <p>Das ist der ausführliche Text! Hier kannst du nun im Detail alles über dein Projekt, deine Erfahrungen oder dieses spezifische Thema erzählen.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Box 2 -->
-    <div class="box">
-        <div class="box-content"> <h3>Extracurriculars</h3></div>
-        <img src="" alt="Projekt 2" class="box-img">
-        <div class="box-content">
-            <p>Hier steht eine kurze Beschreibung für das zweite Element.</p>
-            <div class="mehr-info">
-                <hr>
-                <p>Hier folgt der detaillierte Text für die zweite Box.</p>
+        <!-- ==================== BOX 2 (Extracurriculars) ==================== -->
+        <!-- Das Prinzip wiederholt sich hier (Zeilen 23-31 verhalten sich exakt wie Box 1) -->
+        <div class="box">
+            <div class="box-content">
+                <h3>Extracurriculars</h3>
+            </div>
+            <img src="" alt="Projekt 2" class="box-img">
+            <div class="box-content">
+                <p>Hier steht eine kurze Beschreibung für das zweite Element.</p>
+                <div class="mehr-info">
+                    <hr>
+                    <p>Hier folgt der detaillierte Text für die zweite Box.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Box 3 -->
-    <div class="box">
-        <div class="box-content"> <h3>Academic</h3> </div>
-        <img src="dein-bild3.jpg" alt="Projekt 3" class="box-img">
-        <div class="box-content">
-            <p>Hier steht eine kurze Beschreibung für das dritte Element.</p>
-            <div class="mehr-info">
-                <hr>
-                <p>Hier folgt der detaillierte Text für die zweite Box.</p>
+        <!-- ==================== BOX 3 (Academic) ==================== -->
+        <!-- Das Prinzip wiederholt sich hier (Zeilen 32-40 verhalten sich exakt wie Box 1) -->
+        <div class="box">
+            <div class="box-content">
+                <h3>Academic</h3>
+            </div>
+            <img src="dein-bild3.jpg" alt="Projekt 3" class="box-img">
+            <div class="box-content">
+                <div class="box-content">
+                <p>Hier steht eine kurze Beschreibung für das dritte Element.</p>
+                <div class="mehr-info">
+                    <hr>
+                    <p>Hier folgt der detaillierte Text für die dritte Box.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-</section>
-</body>
-</html>
+    </section> <!-- Ende des Boxen-Containers -->
+
+</body> <!-- Ende des sichtbaren Bereichs -->
+</html> <!-- Ende des gesamten HTML-Dokuments -->
