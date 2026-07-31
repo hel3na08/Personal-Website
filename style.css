@@ -9,14 +9,22 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.1% 1%;
-    position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-.about-me {
+.about-me-bild {
     display: flex;
+}
+.about-me {
+    display: block;
     margin-top: 2%;
+}
+.paragraph {
+    font-size: larger;
+    line-height: 1.5;
 }
 
 .titel-bild {
@@ -33,6 +41,8 @@ body {
     padding: 50px 2%;      
     width: 100%;             
     box-sizing: border-box;  
+    height: auto;
+    align-items: flex-start;
 }
 
 /* Die normale, geschlossene Box */
@@ -42,9 +52,9 @@ body {
     height: auto;                        
     max-width: 100%;
     border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
     
-    overflow: hidden;                    
+    overflow: visible;                    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +63,7 @@ body {
     cursor: pointer;                 
     /* Bestimmt, wie weich und geschmeidig die Box nach unten ausfährt */
     transition: max-height 0.5s ease-in-out, box-shadow 0.3s ease; 
-    max-height: 360px;               /* Strikte Begrenzung im geschlossenen Zustand */
+               /* Strikte Begrenzung im geschlossenen Zustand */
 }
 
 .box-img {
@@ -80,14 +90,14 @@ body {
 }
 
 /* DER VERSTECKTE BEREICH (Inklusive Button) */
-/*.mehr-info {
+.mehr-info {
     max-height: 0;                   /* Nimmt unsichtbar absolut keinen Platz weg */
-/*    opacity: 0;                      /* Vollständig transparent */
-/*    visibility: hidden;
+    opacity: 0;                      /* Vollständig transparent */
+    visibility: hidden;
     transition: opacity 0.4s ease, max-height 0.4s ease;
     margin-top: 0;
     overflow: hidden;
-}*/
+}
 
 .mehr-info hr {
     border: 0;
