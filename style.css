@@ -19,9 +19,6 @@ body {
     margin-top: 2%;
 }
 
-.about-me h2 { 
-}
-
 .titel-bild {
     padding: 2%;
     width: 25%;
@@ -83,14 +80,14 @@ body {
 }
 
 /* DER VERSTECKTE BEREICH (Inklusive Button) */
-.mehr-info {
+/*.mehr-info {
     max-height: 0;                   /* Nimmt unsichtbar absolut keinen Platz weg */
-    opacity: 0;                      /* Vollständig transparent */
-    visibility: hidden;
+/*    opacity: 0;                      /* Vollständig transparent */
+/*    visibility: hidden;
     transition: opacity 0.4s ease, max-height 0.4s ease;
     margin-top: 0;
     overflow: hidden;
-}
+}*/
 
 .mehr-info hr {
     border: 0;
@@ -100,7 +97,7 @@ body {
 }
 
 /* Das Styling für den "Mehr erfahren" Button */
-.weiter-btn {
+/*.weiter-btn {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
@@ -111,7 +108,7 @@ body {
     font-weight: bold;
     font-size: 14px;
     transition: background-color 0.2s;
-}
+}*/
 
 .weiter-btn:hover {
     background-color: #f0f0f0;
@@ -169,6 +166,7 @@ body {
 .bilder-ec {
     width: 30%;
     object-fit: cover;
+    height: 80vh;
 }
 
 .bilder-ad-box {
